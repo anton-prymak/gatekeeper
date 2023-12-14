@@ -59,6 +59,8 @@ spec:
         - --emit-admission-events={{ .Values.emitAdmissionEvents }}
         - --admission-events-involved-namespace={{ .Values.admissionEventsInvolvedNamespace }}
         - --log-level={{ (.Values.controllerManager.logLevel | empty | not) | ternary .Values.controllerManager.logLevel .Values.logLevel }}
+        - --log-stats-audit={{ .Values.logStatsAudit }}
+        - --log-stats-admission={{ .Values.logStatsAdmission }}
         - --exempt-namespace={{ .Release.Namespace }}
         - --operation=webhook
         - --enable-external-data={{ .Values.enableExternalData }}
